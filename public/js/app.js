@@ -9,6 +9,11 @@ angular.module('app',['ngRoute'])
                 controller: 'CarrosController',
                 controllerAs: 'Carros'
             })
+            .when('/novo', {
+                templateUrl: '/partials/form.html',
+                controller: 'CarrosController',
+                controllerAs: 'Carros'
+            })
             .otherwise({
                 redirectTo: '/'
             })

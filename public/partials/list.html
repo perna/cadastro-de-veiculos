@@ -1,8 +1,11 @@
-<div>
-<div>
-		<button>Novo Carro</button>	
+<div class="row">
+	<div class="col-md-12">
+		<a href="#/novo" class="btn btn-success pull-left">Novo Carro</a>	
+		<form class="form pull-right">
 			<input type="text" placeholder="Pesquisar">
-		</div>
+		</form>
+	</div>
+	<div class="col-md-12">
 		<table class="table">
 			<thead>
 				<tr>
@@ -19,7 +22,8 @@
 				<tr ng-repeat="carro in Carros.list">
 					<td><input type="checkbox"></td>
 					<td>{{ carro.placa }}</td>
-					<td>{{ carro.modelo }}</td>
+					<td><img ng-show="carro.imagem" src="" alt="">
+					{{ carro.modelo }}</td>
 					<td>{{ carro.marca }}</td>
 					<td>{{ carro.imagem }}</td>
 					<td>{{ carro.combustivel }}</td>
@@ -27,4 +31,5 @@
 				</tr>
 			</tbody>
 		</table>
+	</div>
 </div>

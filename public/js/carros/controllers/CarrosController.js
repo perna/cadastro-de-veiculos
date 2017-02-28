@@ -7,6 +7,7 @@ function CarrosController(CarrosServices){
 	var vm = this;
 
 	vm.list = [];
+	vm.carro = {};
 	vm.listCarros = listCarros;
 	vm.listCarros();
 
@@ -20,5 +21,7 @@ function CarrosController(CarrosServices){
 		}); 
 
 	}
+
+
 
 }
