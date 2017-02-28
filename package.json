@@ -1,0 +1,23 @@
+{
+  "name": "cadastro-de-veiculos",
+  "version": "1.0.0",
+  "description": "Exemplo de cadastro de veículos utilizando AngularJS",
+  "main": "server.js",
+  "scripts": {
+    "server": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/perna/cadastro-de-veiculos.git"
+  },
+  "author": "Anderson Meira",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/perna/cadastro-de-veiculos/issues"
+  },
+  "homepage": "https://github.com/perna/cadastro-de-veiculos#readme",
+  "devDependencies": {
+    "json-server": "^0.9.5"
+  }
+}
