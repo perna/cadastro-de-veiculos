@@ -1,0 +1,30 @@
+<div>
+<div>
+		<button>Novo Carro</button>	
+			<input type="text" placeholder="Pesquisar">
+		</div>
+		<table class="table">
+			<thead>
+				<tr>
+					<th><input type="checkbox"></th>
+					<th>Placa</th>
+					<th>Modelo</th>
+					<th>Marca</th>
+					<th>Foto</th>
+					<th>Combustível</th>
+					<th>Valor</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="carro in Carros.list">
+					<td><input type="checkbox"></td>
+					<td>{{ carro.placa }}</td>
+					<td>{{ carro.modelo }}</td>
+					<td>{{ carro.marca }}</td>
+					<td>{{ carro.imagem }}</td>
+					<td>{{ carro.combustivel }}</td>
+					<td>{{ carro.valor | currency:"" }}</td>
+				</tr>
+			</tbody>
+		</table>
+</div>
