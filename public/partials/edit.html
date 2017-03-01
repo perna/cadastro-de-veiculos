@@ -1,0 +1,42 @@
+<div class="row" ng-init="Carro.getCarro(Carro.id_carro)">
+	<div class="alert" ng-show="Carro.showMessage" ng-class="Carro.typeMessage ? 'alert-success' : 'alert-danger'">
+		{{Carro.message}}
+	</div>
+	<div class="col-md-12">
+		<form name="Carro.formEditCarro" class="form" ng-submit="Carro.updateCarro()" novalidate>
+			<input type="hidden" ng-model="Carro.carro.id">
+			<div class="form-group" ng-class="{ 'has-error' : Carro.formEditCarro.placa.$invalid && !Carro.formEditCarro.placa.$pristine }">
+				<label for="">Placa:</label>
+				<input type="text" class="form-control" name="placa" ng-model="Carro.carro.placa" required>
+			</div>
+			<div class="form-group" ng-class="{ 'has-error' : Carro.formEditCarro.modelo.$invalid && !Carro.formEditCarro.modelo.$pristine }">
+				<label for="">Modelo:</label>
+				<input type="text" class="form-control" name="modelo" ng-model="Carro.carro.modelo" required>
+			</div>
+			<div class="form-group" ng-class="{ 'has-error' : Carro.formEditCarro.marca.$invalid && !Carro.formEditCarro.marca.$pristine }">
+				<label for="">Marca:</label>
+				<input type="text" class="form-control" name="marca" ng-model="Carro.carro.marca" required>
+			</div>
+			<div class="form-group">
+				<label for="">URL da Foto:</label>
+				<input type="text" class="form-control" name="imagem" ng-model="Carro.carro.imagem">
+			</div>
+			<div class="form-group">
+				<label for="">Combustível</label>
+				<select class="form-control" ng-model="Carro.carro.combustivel">
+					<option value="Gasolina" selected>Gasolina</option>
+      				<option value="Álcool">Álcool</option>
+      				<option value="Flex">Flex</option>
+				</select>
+			</div>
+			<div class="form-group">
+				<label for="">Valor:</label>
+				<input type="text" class="form-control" name="imagem" ng-model="Carro.carro.valor">
+			</div>
+			<div class="form-group">
+				<button class="btn btn-lg btn-success" type="submit" ng-disabled="!Carro.formEditCarro.$valid">Salvar</button>
+				<a class="btn btn-lg btn-primary" href="#/">Voltar</a>
+			</div>
+		</form>
+	</div>
+</div>

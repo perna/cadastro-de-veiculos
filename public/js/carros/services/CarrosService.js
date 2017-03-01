@@ -4,7 +4,7 @@ CarrosService.$inject = ['$http'];
 
 function CarrosService($http) {
 
-	var endpoint = '/carros';
+	var endpoint = '/carros/';
 
 	function list(){
 		return $http.get(endpoint);
@@ -18,6 +18,22 @@ function CarrosService($http) {
 		return $http.delete(endpoint+id);
 	}
 
-	return{list:list};
+	function save(carro) {
+		var data = JSON.stringify(carro);
+		return $http.post(endpoint, data);
+	}
+
+	function update(id, carro) {
+		var data = JSON.stringify(carro)
+		return $http.put(endpoint+id, data);
+	}
+
+
+	return{
+		list:list,
+		save:save,
+		getById:getById,
+		update: update
+	};
 
 }
