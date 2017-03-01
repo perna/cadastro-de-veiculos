@@ -9,12 +9,16 @@ function CarrosController(CarrosService, $routeParams, $location){
 	vm.list     = [];
 	vm.carro    = {};
 	vm.formCarro;
+	vm.currentPage = 1;
+	vm.pageSize = 5;
+	vm.total;
 
 	//add methods
 	vm.listCarros  = listCarros;
 	vm.createCarro = createCarro;
 	vm.getCarro    = getCarro;
 	vm.updateCarro = updateCarro;
+	vm.deleteCarro = deleteCarro;
 
 
 	function listCarros() {
@@ -22,6 +26,7 @@ function CarrosController(CarrosService, $routeParams, $location){
 		var result = CarrosService.list();
 
 		result.then(function(response) {
+			vm.total = response.data.length;
 			vm.list = response.data;
 		}); 
 
@@ -45,9 +50,10 @@ function CarrosController(CarrosService, $routeParams, $location){
 			var result = CarrosService.save(data)
 
 			result.then(function(response){
-				vm.message = 'Cadastro realizado com sucesso';
+				vm.message = 'Cadastro realizado com sucesso! Voltando para a listagem de carros...';
 				vm.showMessage = true;
 				vm.typeMessage = true;
+				setTimeout($location.path('/'), 2000);
 
 			})
 			.catch(function(err){
@@ -68,7 +74,7 @@ function CarrosController(CarrosService, $routeParams, $location){
 	}
 
 	function updateCarro() {
-		
+
 		if(vm.formEditCarro.$valid){
 
 			var result = CarrosService.update(vm.carro.id, vm.carro);
@@ -80,5 +86,28 @@ function CarrosController(CarrosService, $routeParams, $location){
 			});
 		}
 	}
+
+	function deleteCarro(id) {
+		CarrosService.showDeleteQuestion(function() {
+			
+			var result = CarrosService.remove(id);
+			
+			result.then(function(data){
+				
+				for(var i = 0; i < vm.list.length; i++) {
+    				if(vm.list[i].id == id) {
+        				vm.list.splice(i, 1);
+        				break;
+        			}
+    			}
+
+				$location.path('/');
+			});
+
+		});
+
+	}
+
+
 
 }

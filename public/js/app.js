@@ -1,6 +1,6 @@
-angular.module('app',['ngRoute','oitozero.ngSweetAlert'])
-	.config(['$routeProvider','$locationProvider',
-    	function($routeProvider, $locationProvider){
+angular.module('app',['ngRoute','oitozero.ngSweetAlert','angularUtils.directives.dirPagination'])
+	.config(['$routeProvider','$locationProvider', 'paginationTemplateProvider',
+    	function($routeProvider, $locationProvider, paginationTemplateProvider){
 
         $locationProvider.hashPrefix('');
         $routeProvider
@@ -22,4 +22,7 @@ angular.module('app',['ngRoute','oitozero.ngSweetAlert'])
             .otherwise({
                 redirectTo: '/'
             })
+
+            paginationTemplateProvider.setPath('js/libraries/dirPagination.tpl.html');
+
     }]);

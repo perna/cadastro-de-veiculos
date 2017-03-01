@@ -1,8 +1,8 @@
 angular.module('app').factory('CarrosService', CarrosService);
 
-CarrosService.$inject = ['$http'];
+CarrosService.$inject = ['$http','SweetAlert', '$location'];
 
-function CarrosService($http) {
+function CarrosService($http, SweetAlert, $location) {
 
 	var endpoint = '/carros/';
 
@@ -29,11 +29,32 @@ function CarrosService($http) {
 	}
 
 
+	function showDeleteQuestion(callback) {
+		SweetAlert.swal({
+   				title: "Atenção",
+   				text: "Deseja realmente excluir este carro?",
+   				type: "warning",
+   				showCancelButton: true,
+   				cancelButtonText:"Não",
+   				confirmButtonColor: "#DD6B55",
+   				confirmButtonText: "Sim",
+   				closeOnConfirm: true
+   			}, 
+			function(isConfirm){
+				if(isConfirm) {
+					callback();
+				}
+		});
+	}
+
+
 	return{
 		list:list,
 		save:save,
 		getById:getById,
-		update: update
+		update: update,
+		showDeleteQuestion: showDeleteQuestion,
+		remove: remove
 	};
 
 }

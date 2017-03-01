@@ -2,7 +2,7 @@
 	<div class="alert" ng-show="Carro.showMessage" ng-class="Carro.typeMessage ? 'alert-success' : 'alert-danger'">
 		{{Carro.message}}
 	</div>
-	<div class="col-md-12">
+	<div class="col-md-4">
 		<form name="Carro.formEditCarro" class="form" ng-submit="Carro.updateCarro()" novalidate>
 			<input type="hidden" ng-model="Carro.carro.id">
 			<div class="form-group" ng-class="{ 'has-error' : Carro.formEditCarro.placa.$invalid && !Carro.formEditCarro.placa.$pristine }">

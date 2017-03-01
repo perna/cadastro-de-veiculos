@@ -1,0 +1,25 @@
+body{background: #f1f4f9;}
+.navbar-default{background: #2687e9; border: none;}
+
+.table{
+	background: #fff; 
+	border-radius: 5px; 
+	padding:5px;
+	color: #466583; 
+	border:1px solid #c9d3dd;
+}
+
+.table thead tr{background: #f8fafc;}
+.table-hover>tbody>tr:hover{background: #d8e9fb}
+
+.panel-search-list{margin-bottom: 20px;}
+
+.actions .remove{
+	color:#bf6e6e;
+	display: inline-block;
+	cursor:pointer;
+}
+.actions .remove :hover{color:#b72f2f ;}
+
+.search-filter-content{margin: 5px 5px 0 auto; color:#466583;}
+.search-filter-box button{background: #f1f4f9; color:#466583;}

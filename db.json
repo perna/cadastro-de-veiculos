@@ -53,15 +53,6 @@
       "imagem": "http://i65.tinypic.com/futg0m.png",
       "combustivel": "Flex",
       "valor": "23000"
-    },
-    {
-      "id": 7,
-      "placa": "SSV-3491",
-      "modelo": "Fusca",
-      "marca": "Volkswagen",
-      "imagem": null,
-      "combustivel": "Gasolina",
-      "valor": "7000"
     }
   ]
 }
